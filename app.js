@@ -33,4 +33,18 @@ app.get("/api/v1/tasks/:taskId", (req, res) => {
   res.send(task);
 });
 
+// Create a task
+app.post("/api/v1/tasks", (req, res) => {
+  const { title, description, completed } = req.body;
+  const newID = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
+  const newTask = {
+    id: newID,
+    title,
+    description,
+    completed,
+  };
+  tasks.push(newTask);
+  return res.send(tasks);
+});
+
 module.exports = app;
