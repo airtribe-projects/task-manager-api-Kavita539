@@ -21,8 +21,16 @@ app.listen(port, (err) => {
   console.log(`Server is listening on ${port}`);
 });
 
+// Retrieve tasks
 app.get("/api/v1/tasks", (req, res) => {
   res.send(tasks);
+});
+
+// Retrieve task by an ID
+app.get("/api/v1/tasks/:taskId", (req, res) => {
+  const taskID = Number(req.params.taskId);
+  const task = tasks.find((task) => task.id === taskID);
+  res.send(task);
 });
 
 module.exports = app;
