@@ -47,8 +47,7 @@ app.post("/api/v1/tasks", (req, res) => {
   return res.send(tasks);
 });
 
-// update a task by its id
-
+// update an existing task by its id
 app.put("/api/v1/tasks/:taskId", (req, res) => {
     const taskID = Number(req.params.taskId);
     const {title, description, completed} = req.body;
@@ -58,6 +57,13 @@ app.put("/api/v1/tasks/:taskId", (req, res) => {
     tasks[taskIndex].description = description
     tasks[taskIndex].completed = completed
     res.send(tasks[taskIndex])
+})
+
+// delete a task by its id
+app.delete("/api/v1/tasks/:taskId", (req, res) => {
+    const taskID = Number(req.params.taskId);
+    const updatedTasks = tasks.filter(task => task.id !== taskID)
+    res.send(updatedTasks)
 })
 
 module.exports = app;
