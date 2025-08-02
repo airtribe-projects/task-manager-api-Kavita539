@@ -47,4 +47,17 @@ app.post("/api/v1/tasks", (req, res) => {
   return res.send(tasks);
 });
 
+// update a task by its id
+
+app.put("/api/v1/tasks/:taskId", (req, res) => {
+    const taskID = Number(req.params.taskId);
+    const {title, description, completed} = req.body;
+    const taskIndex = tasks.findIndex(task => task.id === taskID);
+    console.log(taskIndex)
+    tasks[taskIndex].title = title
+    tasks[taskIndex].description = description
+    tasks[taskIndex].completed = completed
+    res.send(tasks[taskIndex])
+})
+
 module.exports = app;
