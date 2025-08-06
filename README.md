@@ -45,9 +45,16 @@ node index.js
 
 ## 🔌 API Endpoints
 
-### ✅ 1. Get All Tasks
-GET /api/tasks
+### Base URL: http://localhost:3000
 
+#### ✅ 1. Get All Tasks
+
+```bash
+GET /api/tasks
+```
+
+```bash
+<pre>
 Response:
 [
   {
@@ -58,3 +65,5 @@ Response:
   },
   ...
 ]
+</pre>
+```
