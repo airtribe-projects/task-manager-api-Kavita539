@@ -117,14 +117,12 @@ POST /api/v1/tasks
 
 ##### Request:
 ```bash
-[
   {
     "title": "Buy groceries new item",
     "description": "Bought grocery - done",
     "completed": true,
     "priority": "high"
-  },
-]
+  }
 ```
 
 ##### Response:
@@ -157,15 +155,13 @@ PUT /api/v1/tasks/1
 
 ##### Request:
 ```bash
-[
   {
     "id": 1,
     "title": "Buy groceries new item",
     "description": "Bought grocery - done",
     "completed": true,
     "priority": "high"
-  },
-]
+  }
 ```
 
 ##### Response:
